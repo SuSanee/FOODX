@@ -1,0 +1,302 @@
+
+
+
+    <!--
+    <script>
+        
+        const h1 = document.createElement("h1")
+        h1.innerHTML = "Hello World from JS"
+
+        const root = document.getElementById("root")
+        root.appendChild(h1)
+    </script>
+    -->
+
+    <!--
+    <script 
+    crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+    </script>
+    <script 
+    crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+    </script>
+    -->
+
+
+
+
+
+From App.js
+
+
+/*
+    <div>
+        <h1>Hello world from react</h1>
+    </div>
+*/
+
+// const h1 = React.createElement("h1", {}, "Hello world from react")
+
+
+// const h1 = React.createElement("h1", {id: "heading", xyz:"abc"}, "Hello world from react")
+//const root = ReactDOM.createRoot(document.getElementById("root"))
+
+// root.render(h1)
+
+
+
+
+/*
+    <div>
+        <div>
+            <h1>Hello</h1>
+            <h2>World!!!</h2>
+        </div>
+        <div>
+            <h1>Hello</h1>
+            <h2>World!!!</h2>
+        </div>
+    </div>
+*/
+
+// const parent = React.createElement("div", {id: "parent"},[
+//     React.createElement("div", {id: "child1", key: "child1"},[
+//         React.createElement("h1", {key: "child11"}, "Hello"),
+//         React.createElement("h2", {key: "child12"}, "World!!!")
+//     ]),
+//     React.createElement("div", {id: "child2", key: "child2"},[
+//         React.createElement("h1", {key: "child21"}, "Hello"),
+//         React.createElement("h2", {key: "child22"}, "World!!!")
+//     ]     
+//     )
+// ]
+    
+// )
+
+// root.render(parent)
+
+// this whole is hard to read so we use JSX
+
+
+/*
+
+
+
+/*
+    {} --> this obj is used to give attributes to the element like id class
+    remember: react element are js objects
+    and this h1 is react element and so a js object
+
+    ***create element returns an object or react element and then render takes the object convert it to HTML element or tag and put it in the root***
+    *** render replaces everything what is there in the root and not append
+
+    in console-> sources:
+    {} --> everthing inside these bracket is called or is in props
+    "Hello world from react "  -> this is called or is in children
+*/
+
+
+/*
+    library vs framework
+
+    library works can work independently with only a small protion of app
+    react is library
+    it works only with root div and doesn't effect anyhting outside it
+
+    root is basically the area of app we are using react or rendering using react
+
+    whereas framework comes with all loads of things
+
+*/
+
+/*
+    and also note that the order of files matter in react js
+
+    first script of react which is common to all whether the react is getting used in phn or chrome browser or any other browser
+
+    the second script for reactDOM which is specific to chrome browser (read abt it more)
+
+    then third script for app.js where we are writing react code
+
+*/
+
+
+
+/*
+    npm: 
+    it is a standard repo which contains all the packages
+    all the libraries utilities we need come from npm
+    and npm manages that for us in our project
+
+    package.json is configuration for npm
+
+    npm --> it is a package manager it manages all the packages we install
+    
+    our project is depenedent on packages and packages with project our dependent on dependencies
+
+    npm takes care of all dependencies
+    npm takes care of version of packages
+
+
+    there are two types of dependencies or packages we can install:
+    1. dev : req in development phase
+    2. normal : req in production
+
+    npm install -D parcel
+    -D tells npm to install parcel as dev dependency
+
+    *** in package.json
+    parcel version is written as "^2.8.3"
+
+    ^ -> is called caret -> if there is a minor update in verison it automatically updgrades in our app also
+
+    minor update -> 2.8.4 or smthg
+    major update -> 3._._ or smthg
+
+    ~ -> called as tilde -> if there is a major update it automattically install the new version
+
+    prefer ^ and not ~ as major changes will lead to a lot of change in program
+
+
+*/
+
+/*
+    bundler:
+    it bundles our app, packges our app so that in can be shipped or sent for production
+
+    eg -> webpack, parcel, veet
+*/
+
+
+/*
+    package-lock.json -> keeps track of exact version that is installed 
+
+    if a new version 2.8.4 comes package.json will remain same and install the new version but the package-lock.json will keep the tract of latest install version
+
+    package.json -> has approx version
+    package-lock.json -> has exact version
+
+    in integrity in package-lock.json -> sha.. is hash
+    hash is kept to verify that whatever version is in my machine is the same gets deplyoed to production
+    it keeps track of exact version
+*/ 
+
+/*
+
+    node-modules -> keeps record of all the code that we fetched from npm
+    node modules is like a db -> it contains the actual data of dependecnies or packages
+
+    we installed parcel but node modules has a lot of more files it is bcz parcel as project has its own dependencies and those dependencies have there own dependencies and goes on this is called as ""transitive dependencies""
+
+    every dependency has its own dependencies and package.json
+
+
+    if we have package-lock.json and package.json we can create node-modules that is why no need to push node-modules on github only push package-lock.json and package.json
+
+    whatever we can regenerate need not to be put on git
+*/
+
+
+
+
+
+// to build and execute package
+npx parcel index.html
+
+npx -> it executes the package
+nmp -> it  install the package
+
+cdn links is not preferred way to bring react and react dom into our project
+reasons:
+1. fetching from take costly way
+agr react already node-module me hona to use krna aasan ho jayega react
+we won't need to make another network call to bring react we will already have it
+
+2. the cdn link has src with version of react but if new version comes we need to change so its better to have it in package.json it is easy to manage dependencies int it
+
+// to install react dependencies
+npm install react
+no -D bcz not downloading as a dev dependencies
+
+// to install react DOM dependencies
+npm install react-dom
+
+npm i is short form for npm install
+npm i react == npm install react
+
+react is installed in node-module but to use in app.js we will use
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";  --> to remove warning
+
+this will give us error that "brwoser scripts cannot have imports or exports" 
+reason is
+<script></script> is treated like a normal browser js script and browser script does not have imports
+
+<script type = "module" src=""></script>
+
+type to tell taht this is not normal browser script, and will treated like a module
+
+parcel
+1. creats dev build
+2. creats local server 
+3. refreshes webpg on its own
+HMR = Hot Module Replacement
+this is done by File watching algo which is written in C++
+4. gives Faster Build --> using Caching in parcel-cache
+5. does Image Optimization
+6. does Minification of our files on production build
+7. bundles the files
+8. compresses the files
+9. uses consistent hashing
+10. does code spilitting
+11. does diffrerential bundling  --> our app can work on internet explorer also, chrome also so parcel bundle app for diff browser so that in can work every browser
+12. diagnoistics
+13. zero config
+14. Better Error Handling
+15. Tree Shaking --> removes unused code
+16. provides HTTPs
+17. diff dev and prod bundles
+
+
+// build production ready app
+npx parcel build index.html
+** this might through error as package.json have app.js as main so remove that
+
+the generated devlopment build is stored in dist folder and editing our project and saving it to refresh the pg parcel-cache and dist both folder are used 
+
+production build is also build in dist
+
+parcel-cache and dist can also be rebuuild (using npx parcel index.html) so will be kept in git ignore
+
+dist
+.parcel-cache
+
+// you have to tell your project that what all browser should your app support in
+so we need to config browser list in package.json
+browserlist confirm that is will 100% work in those browser it might work or not work in other browser
+
+
+/////// lecture 3 ////////
+
+we know,
+npx parcel index.html ---> builds project in dev mode
+npx parcel build index.html  ---> builds project in production mode
+
+scripts in package.json is used for reducing the code
+"start": "parcel index.html"
+"build": "parcel build index.html"
+
+npm run start / npm start  --> to build project in dev mode ---> reduced the size od cmd
+it called the parcel
+
+npm run build  --> to build in production mode
+npm build --> wrong command
+
+npm run start == npm start
+npm run build !=npm build
+
+npm run start behind the secene executes the pckg parcel with index.html bcz we have config this in our package.json
+
+
+/// JSX
+JSX --> It is not HTML or XML , It is HTML-like or XML-like syntax
