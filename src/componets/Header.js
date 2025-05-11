@@ -1,5 +1,4 @@
 import { CART_URL } from "../utilies/constants";
-// import logo from '../img/FooDY.jpg'
 
 const logo = new URL('../img/Foodx.png', import.meta.url).href;
 
