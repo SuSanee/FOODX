@@ -1,10 +1,18 @@
 import { CART_URL } from "../utilies/constants";
+// import logo from '../img/FooDY.jpg'
+
+const logo = new URL('../img/Foodx.png', import.meta.url).href;
+
+
+// const logo = require('../img/logo_final.png')
 
 const Header = () => {
+    console.log("Logo path: ", logo);
     return (
         <div className="header">
             <div className="logo-container">
-                <img className="logo" src= {`${process.env.PUBLIC_URL}/img/logo_final.png`} alt="logo" style={{ width: '100px', height: '50px' }}></img>
+                <img className="logo" src= {logo} alt="logo"></img>
+                {/* <div className="logo">FOODX</div> */}
             </div>
             <div className="nav-items">
                 <ul>
