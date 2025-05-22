@@ -33,14 +33,37 @@
     width: 40px;
 }
 
-.body{
+/* .body{
     border: 1px solid red;
+} */
+
+.res-container, .shimmerContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.shimmerContainer{
+    padding: 40px;
 }
 
 .card{
-    width: 200px;
-    margin: 10px;
+    width: 17%;
+    min-width: 220px;
     padding: 5px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.shimmercard{
+    width: 17%;
+    min-width: 220px;
+    padding: 5px;
+    text-align: center;
+    background-color: #f0f0f0f0;
+    height: 400px;
 }
 
 .card:hover{
@@ -49,15 +72,15 @@
 }
 
 .res-img{
+    border-radius: 4px;
     width: 100%;
-}
-
-.res-container{
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .top-btn{
     margin: 5px;
     padding: 2px;
+}
+
+.filter{
+    display: flex;
 }
