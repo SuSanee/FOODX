@@ -5,7 +5,8 @@ import Body from "./componets/Body"
 import About from "./componets/About"
 import Contact from "./componets/Contact"
 import Error from "./componets/Error"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import ResMenu from "./componets/ResMenu"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 
 /*
@@ -39,7 +40,7 @@ root.render(<HeadingComponent/>)
 const AppLayout = () => (
     <div className="app">
         <Header/>
-        <Body/>
+        <Outlet/>
     </div>
 )
 
@@ -47,16 +48,27 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout/>,
-        errorElement: <Error/>,
-    },
-    {
-        path: "/about",
-        element: <About/>,
-    },
-    {
-        path: "/contact",
-        element: <Contact/>,
-    }
+        children: [
+        {
+            path: "/",
+            element: <Body/>,
+        },
+        {
+            path: "/about",
+            element: <About/>,
+        },
+        {
+            path: "/contact",
+            element: <Contact/>,
+        },
+        {
+            path: "/restaurant/:resId",
+            element: <ResMenu/>,
+        },
+        ],
+        
+    }, 
+    
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"))

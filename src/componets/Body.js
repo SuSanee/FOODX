@@ -1,6 +1,10 @@
 import CardLayout from "./CardLayout"
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import { SWIGY_API_URL } from "../utilies/constants";
+import { IoSearch } from "react-icons/io5";
+import useOnlineStatus from "../utilies/useOnlineStatus";
 
 const Body = () => {
     const [listOfRes, setListOfRes] = useState([]);
@@ -13,7 +17,7 @@ const Body = () => {
     },[])
 
     const fetchData = async() => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9124336&lng=75.7872709&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch(SWIGY_API_URL)
         const json = await data.json()
         console.log(json)
 
@@ -21,24 +25,40 @@ const Body = () => {
         setFilteredList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)   
     }
 
+    if(useOnlineStatus() === false) return(
+        <div>
+            <h1>Uh-Oh!!!!</h1>
+            <h2>No Internet Connection</h2>
+        </div>
+    
+    )
+
     if(listOfRes.length === 0){
         return <Shimmer/>
     }
 
 
     return (
-        <div className="body">
+        <div className="body bg">
             <div className="filter">
 
                 {/* search */}
-                <div className="search">
-                    <input type="text" className="search-box" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></input>
-                    <button onClick={() =>{
+                <div className="search-box">
+                    <input type="text" className="search-input" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} 
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            const FilteredResList = listOfRes.filter((res) =>
+                                res.info.name.toLowerCase().includes(searchValue.toLowerCase())
+                            );
+                            setFilteredList(FilteredResList);
+                        }
+                    }}></input>
+                    <IoSearch className = "search-icon" onClick={() =>{
                         console.log(searchValue)
 
                         let FilteredResList = listOfRes.filter((res) => res.info.name.toLowerCase().includes(searchValue.toLowerCase()));
                         setFilteredList(FilteredResList);
-                    }}>Search</button>
+                    }}/>
                 </div>
 
                 {/* top-rated */}
@@ -46,7 +66,7 @@ const Body = () => {
                     <button 
                         className="top-btn" 
                         onClick={() => {
-                            let FilteredResList = listOfRes.filter((res)=> res.info.avgRating>4.5)
+                            let FilteredResList = listOfRes.filter((res)=> res.info.avgRating>4)
                             setFilteredList(FilteredResList);
                         }
                     }
