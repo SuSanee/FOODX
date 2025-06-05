@@ -1,7 +1,6 @@
-import CardLayout from "./CardLayout"
+import CardLayout, {withPromotedLabel} from "./RestaurantCard"
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
 import { SWIGY_API_URL } from "../utilies/constants";
 import { IoSearch } from "react-icons/io5";
 import useOnlineStatus from "../utilies/useOnlineStatus";
@@ -9,21 +8,25 @@ import useOnlineStatus from "../utilies/useOnlineStatus";
 const Body = () => {
     const [listOfRes, setListOfRes] = useState([]);
     const [FilteredList, setFilteredList] = useState([])
-
     const [searchValue, setSearchValue] = useState("")
+
 
     useEffect(()=>{
         fetchData();
     },[])
+
+    const PromotedCard = withPromotedLabel(CardLayout)
 
     const fetchData = async() => {
         const data = await fetch(SWIGY_API_URL)
         const json = await data.json()
         console.log(json)
 
-        setListOfRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)   
+        setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
+
+
 
     if(useOnlineStatus() === false) return(
         <div>
@@ -40,11 +43,11 @@ const Body = () => {
 
     return (
         <div className="body bg">
-            <div className="filter">
+            <div className="flex items-center justify-center py-8">
 
                 {/* search */}
-                <div className="search-box">
-                    <input type="text" className="search-input" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} 
+                <div className="flex items-center justify-end border rounded w-72 mx-4 px-0.5">
+                    <input type="text" className="w-full border-none focus:outline-none" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} 
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
                             const FilteredResList = listOfRes.filter((res) =>
@@ -62,9 +65,8 @@ const Body = () => {
                 </div>
 
                 {/* top-rated */}
-                <div className="topRated">
-                    <button 
-                        className="top-btn" 
+                <div className="border px-2 py-1 rounded hover:bg-[#375a1e] hover:text-white transition-transform hover:scale-105">
+                    <button  
                         onClick={() => {
                             let FilteredResList = listOfRes.filter((res)=> res.info.avgRating>4)
                             setFilteredList(FilteredResList);
@@ -77,10 +79,10 @@ const Body = () => {
                 </div>
             </div>
 
-            <div className="res-container">
+            <div className="flex flex-wrap justify-center p-5 gap-5">
                 {
                 FilteredList.map((restraunt) => {
-                    return <CardLayout key={restraunt.info.id} resData = {restraunt}/>
+                    return restraunt.info.promoted ? <PromotedCard key={restraunt.info.id} resData = {restraunt}/> : <CardLayout key={restraunt.info.id} resData = {restraunt}/>
                 })
                 }
 

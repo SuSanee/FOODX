@@ -20,10 +20,15 @@
     "parcel": "^2.14.4"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-router": "^6.23.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "tailwindcss": "^4.1.8"
   }
 }
