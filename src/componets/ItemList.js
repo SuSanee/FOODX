@@ -16,7 +16,7 @@ const ItemList = ({items}) => {
                         <p className="text-gray-500 text-sm mb-3">{item.card.info.description}</p>
 
                     </div>
-                    <div className="w-3/12">
+                    <div className="w-3/12 my-3">
                         <img src={CDN_URL + item.card.info.imageId} className="rounded-xl"/>
                         <div className="absolute translate-x-6.5 -translate-y-5.5">
                             <button className="bg-white text-green-600 rounded-xl py-2 px-8 text-lg font-bold">ADD</button>

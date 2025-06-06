@@ -7,6 +7,8 @@ import Contact from "./componets/Contact"
 import Error from "./componets/Error"
 import ResMenu from "./componets/ResMenu"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+import { Provider } from "react-redux"
+import appStore from "./utilies/appStore"
 
 
 /*
@@ -38,10 +40,12 @@ root.render(<HeadingComponent/>)
 */
 
 const AppLayout = () => (
+    <Provider store={appStore}>
     <div className="app">
         <Header/>
         <Outlet/>
     </div>
+    </Provider>
 )
 
 const appRouter = createBrowserRouter([

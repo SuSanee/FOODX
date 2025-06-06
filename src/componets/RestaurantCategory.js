@@ -1,13 +1,10 @@
 import { FaAngleDown } from "react-icons/fa";
 import ItemList from "./ItemList";
-import { useState } from "react";
 
-const RestaurantCategory = ({categoryData}) =>{
-
-    const [showItems, setShowItems] = useState(false)
-
+const RestaurantCategory = ({categoryData, showItems, setShowIndex}) =>{
+    
     const handleClick = () => {
-        setShowItems(!showItems)
+        setShowIndex()
     }
 
     return <div className="res-text border bg-gray-100 p-3 font-medium mt-5 shadow-lg">
