@@ -42,7 +42,6 @@ const ResMenu = () => {
                     categoryData = {category.card.card}
                     showItems = {index === showIndex ? true : false }
                     setShowIndex = {() => setShowIndex(index)} />
-
                 )}   
             </div>
             

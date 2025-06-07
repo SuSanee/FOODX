@@ -42,11 +42,10 @@ const Body = () => {
 
     return (
         <div className="body bg">
-            <div className="flex items-center justify-center py-8">
-
+            <div className="flex items-center justify-center py-8 px-4">
                 {/* search */}
-                <div className="flex items-center justify-end border rounded w-72 mx-4 px-0.5">
-                    <input type="text" className="w-full border-none focus:outline-none" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} 
+                <div className="flex items-center justify-end border rounded w-[70%] sm:w-72 mx-2 px-2">
+                    <input type="text" className="w-full border-none focus:outline-none text-sm sm:text-base" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} 
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
                             const FilteredResList = listOfRes.filter((res) =>
@@ -55,24 +54,24 @@ const Body = () => {
                             setFilteredList(FilteredResList);
                         }
                     }}></input>
-                    <IoSearch className = "search-icon" onClick={() =>{
+                    <IoSearch className = "search-icon w-5 h-5 sm:w-6 sm:h-6" onClick={() =>{
                         let FilteredResList = listOfRes.filter((res) => res.info.name.toLowerCase().includes(searchValue.toLowerCase()));
                         setFilteredList(FilteredResList);
                     }}/>
                 </div>
 
                 {/* top-rated */}
-                <div className="border px-2 py-1 rounded hover:bg-[#375a1e] hover:text-white transition-transform hover:scale-105">
+                <div className="border px-2 py-1 rounded hover:bg-[#375a1e] hover:text-white transition-transform hover:scale-105 text-sm sm:text-base whitespace-nowrap">
                     <button  
                         onClick={() => {
                             let FilteredResList = listOfRes.filter((res)=> res.info.avgRating>4)
                             setFilteredList(FilteredResList);
-                        }}>Top Rated Restraunts
+                        }}>Top Rated
                     </button>    
                 </div>
             </div>
 
-            <div className="flex flex-wrap justify-center p-5 gap-5">
+            <div className="flex flex-wrap justify-center p-4 gap-x-4 gap-y-6 sm:p-5 sm:gap-5">
                 {
                 FilteredList.map((restraunt) => {
                     return restraunt.info.promoted ? <PromotedCard key={restraunt.info.id} resData = {restraunt}/> : <CardLayout key={restraunt.info.id} resData = {restraunt}/>

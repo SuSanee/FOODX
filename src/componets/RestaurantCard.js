@@ -18,17 +18,17 @@ const RestaurantCard = (props) => {
     const resId = useParams()
 
     return (
-        <div className="w-[17%] min-w-[220px] p-1 hover:cursor-pointer transition-transform hover:scale-95">
+        <div className="w-[45%] sm:w-[17%] sm:min-w-[220px] p-1 hover:cursor-pointer transition-transform hover:scale-95">
             <Link to = {"/restaurant/" + id} style={{textDecoration: "none", color: "black"}}>
-                <img className="rounded-xl w-full h-[220px]" src={ CDN_URL + cloudinaryImageId}></img>
+                <img className="rounded-xl w-full h-[160px] sm:h-[220px]" src={ CDN_URL + cloudinaryImageId}></img>
                 <div className="p-1">
-                    <h3 className="font-bold">{name}</h3>
+                    <h3 className="font-bold text-sm sm:text-base">{name}</h3>
                     <div className="flex items-center py-1">
-                        <MdStars color="green" size={20}/>
-                        <h4>{avgRating} • {sla.deliveryTime} mins</h4>
+                        <MdStars color="green" size={16} className="sm:w-5 sm:h-5"/>
+                        <h4 className="text-xs sm:text-base">{avgRating} • {sla.deliveryTime} mins</h4>
                     </div>
-                    <h5>{cuisines.join(", ")}</h5>
-                    <h5 className="py-1">{locality}</h5>
+                    <h5 className="text-xs sm:text-base">{cuisines.join(", ")}</h5>
+                    <h5 className="py-1 text-xs sm:text-base">{locality}</h5>
                 </div>
             </Link>
         </div>
