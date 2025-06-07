@@ -41,7 +41,8 @@ To get a local copy up and running, follow these simple steps.
     ```bash
     npm install
     ```
-    # or
+    **or**
+    
     ```bash
     yarn install
     ```
@@ -49,7 +50,8 @@ To get a local copy up and running, follow these simple steps.
     ```bash
     npm start
     ```
-    # or
+    **or**
+
     ```bash
     yarn start
     ```
