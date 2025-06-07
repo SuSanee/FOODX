@@ -40,12 +40,16 @@ To get a local copy up and running, follow these simple steps.
 2.  **Install dependencies:**
     ```bash
     npm install
+    ```
+    ```bash
     # or
     yarn install
     ```
 3.  **Start the development server:**
     ```bash
     npm start
+    ```
+    ```bash
     # or
     yarn start
     ```
