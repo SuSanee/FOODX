@@ -41,16 +41,16 @@ To get a local copy up and running, follow these simple steps.
     ```bash
     npm install
     ```
-    ```bash
     # or
+    ```bash
     yarn install
     ```
 3.  **Start the development server:**
     ```bash
     npm start
     ```
-    ```bash
     # or
+    ```bash
     yarn start
     ```
     This will open the application in your browser at `http://localhost:1234`.
