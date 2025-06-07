@@ -4,7 +4,6 @@ import { MdStars} from "react-icons/md";
 import useRestaurantMenu from "../utilies/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
-import { TbUvIndex } from "react-icons/tb";
 
 const ResMenu = () => {
     const {resId} = useParams()
@@ -14,19 +13,14 @@ const ResMenu = () => {
 
     if(resMenu == null) return <Shimmer/>
 
-    console.log(resMenu)
     const {name, cuisines, costForTwoMessage, areaName, avgRating} = resMenu?.data?.cards[2]?.card?.card?.info;
 
     const categories = resMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         c => c.card?.card?.["@type"] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory')
 
-    console.log("category : ")
-    console.log(categories)
-
-
     return (
         <div className="bg-[#fdfcfb] w-1/2 transform translate-x-1/2 m-12 p-1">
-            <div className="text-xl font-semibold pb-1 border-b mb-2">
+            <div className="text-3xl font-bold pb-1 border-b mb-2">
                 <h1>{name}</h1>
             </div>
             <div className="res-text border rounded-lg bg-gray-100 p-3 font-medium mt-5">

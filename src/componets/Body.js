@@ -20,7 +20,6 @@ const Body = () => {
     const fetchData = async() => {
         const data = await fetch(SWIGY_API_URL)
         const json = await data.json()
-        console.log(json)
 
         setListOfRes(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -57,8 +56,6 @@ const Body = () => {
                         }
                     }}></input>
                     <IoSearch className = "search-icon" onClick={() =>{
-                        console.log(searchValue)
-
                         let FilteredResList = listOfRes.filter((res) => res.info.name.toLowerCase().includes(searchValue.toLowerCase()));
                         setFilteredList(FilteredResList);
                     }}/>
@@ -70,11 +67,7 @@ const Body = () => {
                         onClick={() => {
                             let FilteredResList = listOfRes.filter((res)=> res.info.avgRating>4)
                             setFilteredList(FilteredResList);
-                        }
-                    }
-                        
-                    >
-                        Top Rated Restraunts
+                        }}>Top Rated Restraunts
                     </button>    
                 </div>
             </div>
