@@ -13,7 +13,11 @@ const RestaurantCategory = ({categoryData, showItems, setShowIndex}) =>{
 
     
     const handleClick = () => {
-        setShowIndex()
+        if(showItems)
+            setShowIndex(null)
+        else
+            setShowIndex()
+        
     }
 
     return <div className="res-text border bg-gray-100 p-3 font-medium mt-5 shadow-lg">

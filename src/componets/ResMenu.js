@@ -40,8 +40,9 @@ const ResMenu = () => {
                 {categories.map( (category, index ) => 
                     <RestaurantCategory key={category.card.card.categoryId} 
                     categoryData = {category.card.card}
-                    showItems = {index === showIndex ? true : false }
-                    setShowIndex = {() => setShowIndex(index)} />
+                    showItems = {index === showIndex ? true : false}
+                    setShowIndex = {() => setShowIndex(index === showIndex ? null : index)}/>
+                    
                 )}   
             </div>
             

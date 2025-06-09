@@ -1,6 +1,14 @@
 # 🍽️ FOODX - Your Food Ordering App
 
 A responsive and modern food ordering application built with React and Tailwind CSS, offering a seamless user experience for browsing restaurants and ordering food.
+
+## See Website
+**NOTE** : Download the Cors bypass extension and enable it on your chrome browser before starting the project.
+
+link for CORS extension - [Cors Extension](https://chromewebstore.google.com/detail/lhobafahddgcelffkeicbaginigeejlf?utm_source=item-share-cp)
+
+After enabling the extension visit the website from the link given below.
+
 > ⚙️ Live Preview: [Visit FOODX](https://foodx-kappa.vercel.app/)
 
 ## 🛠️ Technologies Used
@@ -19,6 +27,8 @@ A responsive and modern food ordering application built with React and Tailwind 
 - **Top-Rated Restaurants**: Filter and view only the top-rated restaurants.
 - **Restaurant Menu**: View the detailed menu for each restaurant with category-wise listings.
 - **Cart Management**: Add items to your cart, view cart contents, and manage quantities.
+
+https://github.com/user-attachments/assets/3f93b7a0-2120-418e-9ab7-8e304e9ee8d3
 
 
 ## 🖥️Installation
