@@ -30,8 +30,6 @@ After enabling the extension visit the website from the link given below.
 
 https://github.com/user-attachments/assets/3f93b7a0-2120-418e-9ab7-8e304e9ee8d3
 
-https://github.com/user-attachments/assets/3f93b7a0-2120-418e-9ab7-8e304e9ee8d3
-
 ## 🖥️Installation
 
 To get a local copy up and running, follow these simple steps.
