@@ -20,6 +20,7 @@ A responsive and modern food ordering application built with React and Tailwind 
 - **Restaurant Menu**: View the detailed menu for each restaurant with category-wise listings.
 - **Cart Management**: Add items to your cart, view cart contents, and manage quantities.
 
+https://github.com/user-attachments/assets/3f93b7a0-2120-418e-9ab7-8e304e9ee8d3
 
 ## 🖥️Installation
 
